@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Opex Analytics Form</title>
+    <link rel="stylesheet" href="assets/css/theme.css" media="screen">
+    <link rel="stylesheet" href="http://dojotoolkit.org/documentation/tutorials/resources/style/demo.css" media="screen">
+  </head>
+  <body>
+    <div class="logo">
+      <img alt="logo" src="assets/images/logo.png"> 
+      <h3>Inventory Allocation Modal Form</h3>
+    </div>
+    <div class="wrap-form">
+      <div class="form-wrapper">
+        <form id='sample_form' name='sample_form' action="#" method="POST">
+          <div class="heading-wrapper"> <h2>Vendor Inputs</h2></div>
+          <div class="form-fields">
+            <label for="range">Vendor Fill Rate Avg (%) *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="vendor_rate_avg_' + i + '" id="vendor_rate_avg_' + i + '"  />&nbsp;');
+              }</script>
+            <span id="vendor_rate_avg_err" class="hide_error " >Value should be in between 0 to 100.</span>
+            <span id="vendor_rate_avg_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div  class="form-fields">
+            <label for="range">Vendor Fill Rate Std Dev (%) *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="vendor_rate_dev_' + i + '" id="vendor_rate_dev_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="vendor_rate_dev_err" class="hide_error">Value should be in between 0 to 100.</span>
+            <span id="vendor_rate_dev_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields">
+            <label for="avg_inbound_time">Average Inbound Lead Time (wkly) *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="avg_inbound_time_' + i + '" id="avg_inbound_time_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="avg_inbound_time_err" class="hide_error" >Enter  Numbers only.</span>
+            <span id="avg_inbound_time_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields">
+            <label for="avg_inbound_time">Std Dev of Inbound Lead Time*</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="std_dev_lead_time_' + i + '" id="std_dev_lead_time_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="std_dev_lead_time_err" class="hide_error" >Enter  Numbers only.</span>
+            <span id="std_dev_lead_time_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields"> 
+            <label for="rev_per">Review Periods (weeks) *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="rev_per_' + i + '" id="rev_per_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="rev_per_err" class="hide_error" >Enter  Numbers only.</span>
+            <span id="rev_per_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields">
+            <label for="inv_cary_cost">Inventory Carrying Cost (%) *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="inv_cary_cost_' + i + '" id="inv_cary_cost_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="inv_cary_cost_err" class="hide_error">Value should be in between 0 to 100.</span>
+            <span id="inv_cary_cost_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields">
+            <label for="pur_cost">Purchase Cost (per Unit) $  *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="pur_cost_' + i + '" id="pur_cost_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="pur_cost_err" class="hide_error" >Enter  Numbers only.</span>
+            <span id="pur_cost_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="heading-wrapper"> <h2>Warehouse Inputs</h2></div>
+          <div class="form-fields">
+            <label for="cross_dock">Cross Dock (No Buffering)*</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<select  name="cross_dock_' + i + '" id="cross_dock_' + i + '"><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option></select>&nbsp;');
+              }</script>
+
+          </div>
+          <div class="form-fields">
+            <label for="warehouse">Warehousesing (Create Buffers)*</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<select  name="warehouse_' + i + '" id="warehouse_' + i + '"><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option></select>&nbsp;');
+              }</script>
+
+          </div>
+          <div class="heading-wrapper"> <h2>Store Inputs</h2></div>
+          <div class="form-fields">
+            <label for="avg_wkly_dem">Avg Wkly Demand *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="avg_wkly_dem_' + i + '" id="avg_wkly_dem_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="avg_wkly_dem_err" class="hide_error" >Enter  Numbers only.</span>
+            <span id="avg_wkly_dem_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields">
+            <label for="std_dev_demm">Std Dev of Demand *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="std_dev_demm_' + i + '" id="std_dev_demm_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="std_dev_demm_err" class="hide_error" >Enter  Numbers only.</span>
+            <span id="std_dev_demm_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields">
+            <label for="des_cycle_service">Desired Cycle Service Level (%) *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="des_cycle_service_' + i + '" id="des_cycle_service_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="des_cycle_service_err" class="hide_error">Value should be in between 0 to 100.</span>
+            <span id="des_cycle_service_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields">
+            <label for="sale_price">Sale Price $  *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="sale_price_' + i + '" id="sale_price_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="sale_price_err" class="hide_error" >Enter  Numbers only.</span>
+            <span id="sale_price_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields">
+            <label for="out_of_stock"> % of Out of stocks Resulting in Lost Sales  *</label>
+            <script>for (i = 1; i <= 5; i++) {
+                document.write('<input type="text" name="out_of_stock_' + i + '" id="out_of_stock_' + i + '"  />&nbsp;');
+              }</script>
+
+            <span id="out_of_stock_err" class="hide_error">Value should be in between 0 to 100.</span>
+            <span id="out_of_stock_err_n" class="hide_error" >Value Should not be Empty.</span>
+          </div>
+          <div class="form-fields btn-wrapper">
+            <input type="submit" class="btn-post" value="Post" />
+          </div>
+        </form>
+      </div>
+      <!--   <div class="result-wrapper">
+              <div class="heading-wrapper"> <h2>Form results</h2>
+                  <div id="result" ></div>
+              </div>
+          </div> -->
+    </div>
+    <!-- load dojo and provide config via data attribute -->
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/dojo.js" data-dojo-config="async: true, parseOnLoad: true"></script>
+    <script src="assets/js/dojo_form.js" data-dojo-config="async: true, parseOnLoad: true"></script>
+  </body>
+</html>

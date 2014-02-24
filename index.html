@@ -1,294 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
   <head>
     <meta charset="utf-8">
+    <title>Inventory Allocation Model</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Ahex Technologies">
+    <meta name="author" content="">
 
-    <title>Ahex Technologies - Visualization</title>
-	
-	<link rel="shortcut icon" href="assets/images/common/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="assets/images/common/favicon.ico" type="image/x-icon">
+    <!-- Le styles -->
+    <link href="assets/css/theme.css" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="./assets/css/template.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="./assets/js/ie/html5shiv.js"></script>
-      <script src="./assets/js/ie/respond.min.js"></script>
+      <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
+
   </head>
-
   <body>
-
-    <!-- Static navbar -->
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">		
-			<a class="navbar-brand" href="index.html">
-				<img class="logo" src="assets/images/common/ahex-logo.png" alt="logo">
-				<span class="logo-text">Visualization</span>
-			</a>
+    <div class="wrap" style="width:89%;">
+      <div class="logo">
+        <img src="assets/images/logo.png" alt="logo"> 
+        <h3>Inventory Allocation Model</h3>
+      </div>
+      <div class="table">
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td><h2>Scenario Names</h2></td>
+              <td class="vertical-bottom">Scen 1</td>
+              <td class="vertical-bottom">Scen 2</td>
+              <td class="vertical-bottom">Scen 3</td>
+              <td class="vertical-bottom">Scen 4</td>
+              <td class="vertical-bottom">Scen 5</td>
+            </tr>  
+            <tr>
+              <td colspan="6">&nbsp;</td>
+            </tr>  
+            <tr>
+              <td colspan="6"><h2>Vendor Inputs</h2></td>
+            </tr>  
+            <tr>
+              <td colspan="6">&nbsp;</td>
+            </tr>  
+            <tr>
+              <td>Vendor Fill Rate Average</td>
+              <td class="inputs" id="vfraScen1">90%</td>
+              <td class="inputs" id="vfraScen2">95%</td>
+              <td class="inputs" id="vfraScen3">100%</td>
+              <td class="inputs" id="vfraScen4">100%</td>
+              <td class="inputs" id="vfraScen5">100%</td>
+            </tr>  
+            <tr>
+              <td>Vendor Fill Rate Std Dev</td>
+              <td class="inputs" id="vfrsdScen1">10%</td>
+              <td class="inputs" id="vfrsdScen2">5%</td>
+              <td class="inputs" id="vfrsdScen3">0%</td>
+              <td class="inputs" id="vfrsdScen4">0%</td>
+              <td class="inputs" id="vfrsdScen5">0%</td>
+            </tr>  
+            <tr>
+              <td>Average Inbound Lead Time (wkly)</td>
+              <td class="inputs" id="ailtScen1">4.00</td>
+              <td class="inputs" id="ailtScen2">4.00</td>
+              <td class="inputs" id="ailtScen3">4.00</td>
+              <td class="inputs" id="ailtScen4">4.00</td>
+              <td class="inputs" id="ailtScen5">2.00</td>
+            </tr>  
+            <tr>
+              <td>Std Dev of Inbound Lead Time</td>
+              <td class="inputs" id="sdoiltScen1">1</td>
+              <td class="inputs" id="sdoiltScen2">0.75</td>
+              <td class="inputs" id="sdoiltScen3">0.5</td>
+              <td class="inputs" id="sdoiltScen4">0</td>
+              <td class="inputs" id="sdoiltScen5">0</td>
+            </tr>  
+            <tr>
+              <td>Review Period (weeks)</td>
+              <td class="inputs" id="rpScen1">1</td>
+              <td class="inputs" id="rpScen2">1</td>
+              <td class="inputs" id="rpScen3">1</td>
+              <td class="inputs" id="rpScen4">1</td>
+              <td class="inputs" id="rpScen5">1</td>
+            </tr>  
+            <tr>
+              <td>Inventory Carrying Cost (%)</td>
+              <td class="inputs" id="iccScen1">20%</td>
+              <td class="inputs" id="iccScen2">20%</td>
+              <td class="inputs" id="iccScen3">20%</td>
+              <td class="inputs" id="iccScen4">20%</td>
+              <td class="inputs" id="iccScen5">20%</td>
+            </tr>  
+            <tr>
+              <td>Purchase Cost (per unit)</td>
+              <td class="inputs"><span class="float-left">$</span> <span id="pcScen1">15.00</span></td>
+              <td class="inputs"><span class="float-left">$</span> <span id="pcScen2">15.00</span></td>
+              <td class="inputs"><span class="float-left">$</span> <span id="pcScen3">15.00</span></td>
+              <td class="inputs"><span class="float-left">$</span> <span id="pcScen4">15.00</span></td>
+              <td class="inputs"><span class="float-left">$</span> <span id="pcScen5">15.00</span></td>
+            </tr>
+            <tr>
+              <td colspan="6">&nbsp;</td>
+            </tr> 
+            <tr>
+              <td colspan="6"><h2>Warehouse Inputs</h2></td>
+            </tr> 
+            <tr>
+              <td>Cross-Dock (No Buffering)</td>
+              <td class="input-center" id="cdScen1">TRUE</td>
+              <td class="input-center" id="cdScen2">TRUE</td>
+              <td class="input-center" id="cdScen3">TRUE</td>
+              <td class="input-center" id="cdScen4">TRUE</td>
+              <td class="input-center" id="cdScen5">TRUE</td>
+            </tr>
+            <tr>
+              <td>Warehousesing (Create Buffers)</td>
+              <td class="input-center" id="whScen1">FALSE</td>
+              <td class="input-center" id="whScen2">FALSE</td>
+              <td class="input-center" id="whScen3">FALSE</td>
+              <td class="input-center" id="whScen4">FALSE</td>
+              <td class="input-center" id="whScen5">FALSE</td>
+            </tr>
+            <tr>
+              <td colspan="6">&nbsp;</td>
+            </tr> 
+            <tr>
+              <td colspan="6"><h2>Store Inputs</h2></td>
+            </tr> 
+            <tr>
+              <td>Average Wkly Demand</td>
+              <td class="inputs" id="awdScen1">50</td>
+              <td class="inputs" id="awdScen2">50</td>
+              <td class="inputs" id="awdScen3">50</td>
+              <td class="inputs" id="awdScen4">50</td>
+              <td class="inputs" id="awdScen5">50</td>
+            </tr>
+            <tr>
+              <td>Std Dev of Demand</td>
+              <td class="inputs" id="sdodScen1">25</td>
+              <td class="inputs" id="sdodScen2">25</td>
+              <td class="inputs" id="sdodScen3">25</td>
+              <td class="inputs" id="sdodScen4">25</td>
+              <td class="inputs" id="sdodScen5">25</td>
+            </tr>
+            <tr>
+              <td>Desired Cycle Service Level</td>
+              <td class="inputs" id="dcslScen1">95.0%</td>
+              <td class="inputs" id="dcslScen2">95.0%</td>
+              <td class="inputs" id="dcslScen3">95.0%</td>
+              <td class="inputs" id="dcslScen4">95.0%</td>
+              <td class="inputs" id="dcslScen5">95.0%</td>
+            </tr>
+            <tr>
+              <td>Sale Price</td>
+              <td class="inputs"><span class="float-left">$</span> <span id="spScen1">35.00</span></td>
+              <td class="inputs"><span class="float-left">$</span> <span id="spScen1">35.00</span></td>
+              <td class="inputs"><span class="float-left">$</span> <span id="spScen1">35.00</span></td>
+              <td class="inputs"><span class="float-left">$</span> <span id="spScen1">35.00</span></td>
+              <td class="inputs"><span class="float-left">$</span> <span id="spScen1">35.00</span></td>
+            </tr>
+            <tr>
+              <td>% of Out Of Stock Resulting in Lost Sales </td>
+              <td class="inputs" id="otofstScen1">80%</td>
+              <td class="inputs" id="otofstScen2">80%</td>
+              <td class="inputs" id="otofstScen3">80%</td>
+              <td class="inputs" id="otofstScen4">80%</td>
+              <td class="inputs" id="otofstScen5">80%</td>
+            </tr>
+            <tr>
+              <td colspan="6">&nbsp;</td>
+            </tr> 
+            <tr>
+              <td colspan="6"><h2>Outputs- If Store Buffers Supplier Performance</h2></td>
+            </tr> 
+            <tr>
+              <td>Average Cycle Stock ($)</td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsScen1">436.68</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsScen2">405.84</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsScen3">375.00</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsScen4">375.00</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsScen5">375.00</span></td>
+            </tr>
+            <tr>
+              <td>Average Safety Stock ($)</td>
+              <td class="performance"><span class="float-left">$</span> <span id="assScen1">1,850.46</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="assScen2">1,660.84</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="assScen3">1,510.89</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="assScen4">1,379.25</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="assScen5">1,068.36</span></td>
+            </tr>
+            <tr>
+              <td>Average Inventory buffer Supplier ($)</td>
+              <td class="performance"><span class="float-left">$</span> <span id="aibsScen1">2,287.14</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="aibsScen2">2,066.68</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="aibsScen3">1,885.89</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="aibsScen4">1,754.25</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="aibsScen5">1,443.36</span></td>
+            </tr>
+            <tr>
+              <td>Approximate Fill Rate</td>
+              <td class="performance" id="afrScen1">96.8%</td>
+              <td class="performance" id="afrScen2">97.2%</td>
+              <td class="performance" id="afrScen3">97.4%</td>
+              <td class="performance" id="afrScen4">97.6%</td>
+              <td class="performance" id="afrScen5">98.2%</td>
+            </tr>
+            <tr>
+              <td>Expected Lost Profit Buffer Supplier ($)</td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpbsScen1">25.32</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpbsScen2">22.73</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpbsScen3">20.67</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpbsScen4">18.87</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpbsScen5">14.62</span></td>
+            </tr>
+            <tr>
+              <td colspan="6">&nbsp;</td>
+            </tr> 
+            <tr>
+              <td colspan="6"><h2>Outputs- If Store Doesn't Buffer Supplier Performance</h2></td>
+            </tr> 
+            <tr>
+              <td>Average Cycle Stock ($)</td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsdScen1">337.50</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsdScen1">356.25</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsdScen1">375.00</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsdScen1">375.00</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="acsdScen1">375.00</span></td>
+            </tr>
+            <tr>
+              <td>Average Safety Stock ($)</td>
+              <td class="performance"><span class="float-left">$</span> <span id="assdScen1">1,241.33</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="assdScen2">1,310.29</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="assdScen3">1,379.25</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="assdScen4">1,379.25</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="assdScen5">1,068.36</span></td>
+            </tr>
+            <tr>
+              <td>Average Inventory Don't Buffer Supplier ($)</td>
+              <td class="performance"><span class="float-left">$</span> <span id="aidbsScen1">1,578.83</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="aidbsScen1">1,666.54</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="aidbsScen1">1,754.25</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="aidbsScen1">1,754.25</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="aidbsScen1">1.443.36</span></td>
+            </tr>
+            <tr>
+              <td>Approximate Fill Rate</td>
+              <td class="performance" id="afrdScen1">88.2%</td>
+              <td class="performance" id="afrdScen2">93.3%</td>
+              <td class="performance" id="afrdScen3">96.4%</td>
+              <td class="performance" id="afrdScen4">97.6%</td>
+              <td class="performance" id="afrdScen5">98.2%</td>
+            </tr>
+            <tr>
+              <td>Expected Lost Profit Supplier ($)</td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpsScen1">94.44</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpsScen2">53.31</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpsScen3">28.71</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpsScen4">18.87</span></td>
+              <td class="performance"><span class="float-left">$</span> <span id="elpsScen5">14.62</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="graph">
+        <div class="comparing-working-capital">
+          <div id="chartNode">
+          </div>
+          <ul>
+            <li><span>Average Inventory Buffer Supplier ($)</span></li>
+            <li><span>Average Inventory Don't Supplier ($)</span></li>
+          </ul>
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
+        <div class="comparing-lost-profit">
+          <div id="chartNode2">
+          </div>
+          <ul>
+            <li><span>Expected Lost Profit Buffer Supplier ($)</span></li>
+            <li><span>Expected Lost Profit Supplier ($)</span></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-			<li><a href="http://ahex.co.in" target="_blank">About US</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
-
-
-    <div class="container mainContainer">
-		<div class="alert alert-success"><strong>Recently Added</strong></div>
-		<!--	Recently added		-->
-		<div class="row">
-			<!--	Recent	1	-->
-			<div class="col-lg-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/battenhall/" target="_blank">Battenhall</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/battenhall/" target="_blank"><img src="./assets/images/battenhall.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--	Recent	2	-->
-			<div class="col-lg-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/creative_channel_services/pie_display.html" target="_blank">Creative Channel Services</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/creative_channel_services/pie_display.html" target="_blank"><img src="./assets/images/creative_channel_services_2.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--	Recent	3	-->
-			<div class="col-lg-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="https://www.microstrategy.com/free/express/sign-in#sign-in" target="_blank">Microstrategy Dashboard</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="https://www.microstrategy.com/free/express/sign-in#sign-in" target="_blank"><img src="./assets/images/microstrategy_dashboard.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="alert alert-info"><strong>Regular Section</strong></div>
-		<div class="row">
-			<!--		Wrapper 1		-->
-			<div class="col-lg-4">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.mybillbook.co/job_index" target="_blank">Job Index</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.mybillbook.co/job_index" target="_blank"><img src="./assets/images/job_index.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--		Wrapper 2		-->
-			<div class="col-lg-4">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.mybillbook.co/socio_economic_index" target="_blank">Socio Economic Index</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.mybillbook.co/socio_economic_index" target="_blank"><img src="./assets/images/socio_economic_index.png" class="display-center"/></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--		Wrapper 3	-->
-			<div class="col-lg-4">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/pjm_3229/" target="_blank">YTD Revenue from Frequency</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/pjm_3229/" target="_blank"><img src="./assets/images/ytd_revenue_frequency.png" class="display-center"/></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-		
-			<!--		Wrapper 4		-->
-			<div class="col-lg-4">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/shop_stream/4.dashboard.html" target="_blank">Shop Stream</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/shop_stream/4.dashboard.html" target="_blank"><img src="./assets/images/shop_stream_dashboard.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--		Wrapper 5		-->
-			<div class="col-lg-4">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://ahextechnologies.com/d3-roastlog/realtime/realtime.html" target="_blank">Roast Logger</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://ahextechnologies.com/d3-roastlog/realtime/realtime.html" target="_blank"><img src="./assets/images/roast_logger.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--		Wrapper 6		-->
-			<div class="col-lg-4">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/secure_healing" target="_blank">Secure Healing</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/secure_healing" target="_blank"><img src="./assets/images/secure_healing.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-		
-			<!--		Wrapper 7		-->
-			<div class="col-lg-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.quandl.com/INDEXMUNDI-IndexMundi/ENERGY_YEMEN_CRUDEOIL-Yemen-Crude-Oil-Consumption" target="_blank">Crude Oil Consumption</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.quandl.com/INDEXMUNDI-IndexMundi/ENERGY_YEMEN_CRUDEOIL-Yemen-Crude-Oil-Consumption" target="_blank"><img src="./assets/images/yemen_crude_oil.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--		Wrapper 8		-->
-			<div class="col-lg-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/tag_management/" target="_blank">Tag Management</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/tag_management/" target="_blank"><img src="./assets/images/tag_management.png" class="display-center"></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--		Wrapper 9		-->
-			<div class="col-lg-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/opexanalytics/" target="_blank">Opex Analytics</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/opexanalytics/" target="_blank"><img src="./assets/images/opex_analytics.png" class="display-center"></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-		
-			<!--	Wrapper 10	-->
-			<div class="col-lg-4">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/rickshaw_chart/rickshaw.html" target="_blank">Rickshaw Chart</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/rickshaw_chart/rickshaw.html" target="_blank"><img src="./assets/images/rickshaw_chart_timeseries.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-
-			<!--	Wrapper 11	-->
-			<div class="col-lg-4">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/mycharts/" target="_blank">My Charts</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/mycharts/" target="_blank"><img src="./assets/images/my_charts.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-
-			<!--	Wrapper 12	-->
-			<div class="col-lg-4">
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/d3_samples/d3_v4/client_index.html" target="_blank">D3 Samples</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/d3_samples/d3_v4/client_index.html" target="_blank"><img src="./assets/images/d3_samples.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="row">
-			<!--	Wrapper 13 -->
-			<div class="col-lg-4">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://www.ahextechnologies.com/creative_channel_services/" target="_blank">Creative Channel Services</a></h3>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://www.ahextechnologies.com/creative_channel_services/" target="_blank"><img src="./assets/images/creative_channel_services_1.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--	Wrapper 14	-->
-			<div class="col-lg-4">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://mybillbook.co/european_job_index/index_v3.php" target="_blank">European Job Index</a>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://mybillbook.co/european_job_index/index_v3.php" target="_blank"><img src="assets/images/european_job_index_map.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-			
-			<!--	Wrapper 15	-->
-			<div class="col-lg-4">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<h3 class="panel-title"><a href="http://ahextechnologies.com/auto_accidents/" target="_blank">Auto accidents in Texas</a>
-					</div>
-					<div class="panel-body" style="height: 200px;">
-						<a href="http://ahextechnologies.com/auto_accidents/" target="_blank"><img src="assets/images/auto_accident_texas.png" class="display-center" /></a>
-					</div>
-				</div>
-			</div>
-		</div>
-    </div> <!-- /container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+    <!-- Dojo script files-->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./assets/js/jquery.js"></script>
-    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/dojo.js" data-dojo-config="async: true, parseOnLoad: true"></script>
+    <script src="assets/js/dojo_main.js" data-dojo-config="async: true, parseOnLoad: true"></script>
   </body>
 </html>

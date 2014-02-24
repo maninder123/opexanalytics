@@ -1,0 +1,201 @@
+/* 
+    Document   : theme
+    Created on : 15 Oct, 2013, 11:38:14 AM
+    Author     : Maninder Singh
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{ 
+    /*margin: 0 auto;*/
+}
+.text-left{
+    text-align:left;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.float-left{
+    float:left;
+}
+.vertical-bottom{
+    vertical-align: bottom;
+}
+.logo img, h3{
+    display: inline;
+}
+.logo h3{
+    margin-left: 28%;
+    margin-top: 15px;
+    position: absolute;
+}
+.table{
+    width:47%;
+    display: inline-block;
+}
+.graph{
+    margin-top:20px;
+    width:51%;
+    /*margin-left:3%;*/
+    padding: 10px;
+    display: inline-block;
+    position: absolute;
+}
+table tr td{
+    border:1px solid #D4D4D4;
+    padding: 0px 5px;
+}
+table
+{
+    font-size:13px;
+    margin-top:20px;
+    border-collapse:collapse;
+}
+table h2{
+    font-size:20px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.inputs{
+    text-align: right;
+    background-color:#FFCC99;
+    border:1px solid #7F7F7F;
+}
+.input-center{
+    text-align: center;
+    background-color:#FFCC99;
+    border:1px solid #7F7F7F;
+}
+.performance{
+    text-align: right;
+    background-color:#F2F2F2;
+    border:1px solid #3F3F3F;
+}
+.comparing-working-capital{
+    text-align: center;
+    width:90%;
+    height:300px;
+}
+.comparing-working-capital img{
+    padding: 10px;
+    border:1px solid #868686; 
+}
+.comparing-lost-profit{
+    text-align: center;
+    margin-top:20px;
+    width:90%;
+    height:300px;
+}
+.comparing-lost-profit img{
+    padding: 10px;
+    border:1px solid #868686; 
+}
+label { 
+    display: inline-block;
+    width: 240px; 
+}
+.hide_error{
+    display:none;
+}
+.wrap-form{
+    background-color: #EAEAEA;
+}
+.form-wrapper{
+    width:55%; 
+    padding:20px 0 20px 40px;
+    display: inline-block;
+}
+.result-wrapper{
+    width: 40%;
+    display: inline-block;
+    position: absolute;
+    padding: 20px 0px;
+}
+.result-wrapper h1{
+    font-size:14px;
+    margin-top: 15px;
+}
+.result-wrapper span{
+    border:2px solid #fff;
+    padding:1px 25px; 
+    float:right;
+    text-align: center;
+    width: 100px;
+}
+.heading-wrapper{
+    padding:0 50px 0 0px;
+}
+.heading-wrapper h2{
+    border-bottom:1px solid #000000;
+    padding:5px;
+}
+.form-fields{
+    display: block;
+    margin-top: 15px;
+}
+.form-fields span{
+    color: red;
+}
+.btn-wrapper{
+    float:right; 
+    margin-right:10%
+}
+.btn-post{
+    -moz-user-select: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 4px 4px 4px 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    background-color:#1fa3da;
+    font-size: 14.17px;
+    color:#ffffff;
+}
+.btn-post:hover{
+    background-color: #1F95ED;
+    font-weight: bold;
+}
+.comparing-working-capital ul{
+    color: rgb(127, 149, 153);
+    display: inline;
+    list-style: square outside none;
+    margin-top: -30%;
+    position: absolute;
+    right: -65px;
+    text-align: left;
+    width: 150px;
+}
+.comparing-lost-profit ul{
+    color: rgb(127, 149, 153);
+    display: inline;
+    list-style: square outside none;
+    margin-top: -30%;
+    position: absolute;
+    right: -65px;
+    text-align: left;
+    width: 150px;
+}
+.comparing-working-capital ul li:last-child{
+    color:rgb(69, 184, 204);
+}
+.comparing-lost-profit ul li:last-child{
+    color:rgb(69, 184, 204);
+}
+.comparing-lost-profit ul li span{
+    color:#000000;
+    font-size:10px;
+}
+.comparing-working-capital ul li span{
+    color:#000000;
+    font-size:10px;
+}

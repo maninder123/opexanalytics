@@ -1,0 +1,539 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Opex Analytics Form</title>
+    <link rel="stylesheet" href="assets/css/theme.css" media="screen">
+    <link rel="stylesheet" href="http://dojotoolkit.org/documentation/tutorials/resources/style/demo.css" media="screen">
+    <style>
+      .graph{
+        width: 100% !important;
+        display: none;
+      }
+      .result-wrapper{
+        width: 45% !important;
+      }
+      .table{
+        width: 52% !important;
+      }
+      #result_table td{
+        width: 100px !important;
+        font-size: 10px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">
+      <img alt="logo" src="assets/images/logo.png"> 
+      <h3 style="">Inventory Allocation Model</h3>
+    </div>
+    <div class="wrap-form">
+      <div class="form-wrapper">
+        <form id='sample_form' name='sample_form' action="#" method="POST">
+
+          <table width="100%">
+            <tr>
+              <td colspan="6" style="text-align:left; background-color:#ffffff;">
+                <div class="heading-wrapper"> <h2 style="margin:0px auto; background-color:#ffffff;">Scenario Names</h2></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-left">
+                <label for="scen">Scenarios </label>
+              </td>
+
+              <td>
+                <input type="text" name="scen_1" id="scen_1" value="scen1" class="scen_class_1"/>
+              </td>
+              <td>
+                <input type="text" name="scen_2" id="scen_2" value="scen2" class="scen_class_2"/>
+              </td>
+              <td>
+                <input type="text" name="scen_3" id="scen_3" value="scen3" class="scen_class_3"/>
+              </td>
+              <td>
+                <input type="text" name="scen_4" id="scen_4" value="scen4" class="scen_class_4"/>
+              </td>
+              <td>
+                <input type="text" name="scen_5" id="scen_5" value="scen5" class="scen_class_5"/>
+              </td>
+
+            </tr>
+            <tr>
+              <td colspan="6" style="text-align:left; background-color:#ffffff;">
+                <div class="heading-wrapper"> <h2 style="margin:0px auto; background-color:#ffffff;">Vendor Inputs</h2></div>
+              </td>
+            </tr>
+
+            <tbody>
+              <tr>
+                <td class="text-left">
+                  <label for="range">Vendor Fill Rate Avg (%) </label>
+                </td>
+
+                <td>
+                  <input type="text" name="vendor_rate_avg_1" id="vendor_rate_avg_1" class="scen_class_1" value="90"/>
+                </td>
+                <td>
+                  <input type="text" name="vendor_rate_avg_2" id="vendor_rate_avg_2" class="scen_class_2" value="95"/>
+                </td>
+                <td>
+                  <input type="text" name="vendor_rate_avg_3" id="vendor_rate_avg_3" class="scen_class_3" value="100"/>
+                </td>
+                <td>
+                  <input type="text" name="vendor_rate_avg_4" id="vendor_rate_avg_4" class="scen_class_4" value="100"/>
+                </td>
+                <td>
+                  <input type="text" name="vendor_rate_avg_5" id="vendor_rate_avg_5" class="scen_class_5" value="100"/>
+                </td>
+
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="range">Vendor Fill Rate Std Dev (%) </label>
+                </td>
+                <td>
+                  <input type="text" name="vendor_rate_dev_1" id="vendor_rate_dev_1"  class="scen_class_1" value="10"/>
+                </td>
+                <td>
+                  <input type="text" name="vendor_rate_dev_2" id="vendor_rate_dev_2" class="scen_class_2" value="5"/>
+                </td>
+                <td>
+                  <input type="text" name="vendor_rate_dev_3" id="vendor_rate_dev_3" class="scen_class_3" value="0"/>
+                </td>
+                <td>
+                  <input type="text" name="vendor_rate_dev_4" id="vendor_rate_dev_4" class="scen_class_4" value="0"/>
+                </td>
+                <td>
+                  <input type="text" name="vendor_rate_dev_5" id="vendor_rate_dev_5" class="scen_class_5" value="0"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="avg_inbound_time">Average Inbound Lead Time (wkly) </label>
+                </td>
+                <td>
+                  <input type="text" name="avg_inbound_time_1" id="avg_inbound_time_1" class="scen_class_1" value="4.00" />
+                </td>
+                <td>
+                  <input type="text" name="avg_inbound_time_2" id="avg_inbound_time_2" class="scen_class_2" value="4.00"/>
+                </td>
+                <td>
+                  <input type="text" name="avg_inbound_time_3" id="avg_inbound_time_3" class="scen_class_3" value="4.00"/>
+                </td>
+                <td>
+                  <input type="text" name="avg_inbound_time_4" id="avg_inbound_time_4" class="scen_class_4" value="4.00"/>
+                </td>
+                <td>
+                  <input type="text" name="avg_inbound_time_5" id="avg_inbound_time_5" class="scen_class_5" value="2.00"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="avg_inbound_time">Std Dev of Inbound Lead Time</label>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_lead_time_1" id="std_dev_lead_time_1" class="scen_class_1" value="1"/>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_lead_time_2" id="std_dev_lead_time_2" class="scen_class_2" value="0.75"/>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_lead_time_3" id="std_dev_lead_time_3" class="scen_class_3" value="0.5"/>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_lead_time_4" id="std_dev_lead_time_4" class="scen_class_4" value="0"/>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_lead_time_5" id="std_dev_lead_time_5" class="scen_class_5" value="0"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="rev_per">Review Periods (weeks) </label>
+                </td>
+                <td>
+                  <input type="text" name="rev_per_1" id="rev_per_1" class="scen_class_1" value="1"/>
+                </td>
+                <td>
+                  <input type="text" name="rev_per_2" id="rev_per_2" class="scen_class_2" value="1"/>
+                </td>
+                <td>
+                  <input type="text" name="rev_per_3" id="rev_per_3" class="scen_class_3" value="1"/>
+                </td>
+                <td>
+                  <input type="text" name="rev_per_4" id="rev_per_4" class="scen_class_4" value="1"/>
+                </td>
+                <td>
+                  <input type="text" name="rev_per_5" id="rev_per_5" class="scen_class_5" value="1"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="inv_cary_cost">Inventory Carrying Cost (%) </label>
+                </td>
+                <td>
+                  <input type="text" name="inv_cary_cost_1" id="inv_cary_cost_1"  class="scen_class_1" value="20" />
+                </td>
+                <td>
+                  <input type="text" name="inv_cary_cost_2" id="inv_cary_cost_2" value="20" class="scen_class_2"/>
+                </td>
+                <td>
+                  <input type="text" name="inv_cary_cost_3" id="inv_cary_cost_3" value="20" class="scen_class_3"/>
+                </td>
+                <td>
+                  <input type="text" name="inv_cary_cost_4" id="inv_cary_cost_4" value="20" class="scen_class_4"/>
+                </td>
+                <td>
+                  <input type="text" name="inv_cary_cost_5" id="inv_cary_cost_5" value="20" class="scen_class_5"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="pur_cost">Purchase Cost (per Unit) $  </label>
+                </td>
+                <td>
+                  <input type="text" name="pur_cost_1" id="pur_cost_1"  value="15" class="scen_class_1"/>
+                </td>
+                <td>
+                  <input type="text" name="pur_cost_2" id="pur_cost_2"  value="15" class="scen_class_2"/>
+                </td>
+                <td>
+                  <input type="text" name="pur_cost_3" id="pur_cost_3"  value="15"  class="scen_class_3"/>
+                </td>
+                <td>
+                  <input type="text" name="pur_cost_4" id="pur_cost_4"  value="15"  class="scen_class_4"/>
+                </td>
+                <td>
+                  <input type="text" name="pur_cost_5" id="pur_cost_5"  value="15"  class="scen_class_5"/>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="6" style="text-align:left; background-color:#ffffff;">
+                  <div class="heading-wrapper"> <h2 style="margin:0px auto; background-color:#ffffff;">Warehouse Inputs</h2></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="cross_dock">Cross Dock (No Buffering)</label>
+                </td>
+                <td>
+                  <select  name="cross_dock_1" id="cross_dock_1"  class="">
+                    <option value="TRUE" selected>TRUE</option>
+                    <option value="FALSE">FALSE</option>
+                  </select>
+                </td>
+                <td>
+                  <select  name="cross_dock_2" id="cross_dock_2"  class="">
+                    <option value="TRUE" selected>TRUE</option>
+                    <option value="FALSE">FALSE</option>
+                  </select>
+                </td>
+                <td>
+                  <select  name="cross_dock_3" id="cross_dock_3"  class="">
+                    <option value="TRUE" selected>TRUE</option>
+                    <option value="FALSE">FALSE</option>
+                  </select>
+                </td>
+                <td>
+                  <select  name="cross_dock_4" id="cross_dock_4"  class="">
+                    <option value="TRUE" selected>TRUE</option>
+                    <option value="FALSE">FALSE</option>
+                  </select>
+                </td>
+                <td>
+                  <select  name="cross_dock_5" id="cross_dock_5"  class="">
+                    <option value="TRUE" selected>TRUE</option>
+                    <option value="FALSE">FALSE</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="warehouse">Warehousesing (Create Buffers)</label>
+                </td>
+                <td>
+                  <select  name="warehouse_1" id="warehouse_1"  class="">
+                    <option value="TRUE">TRUE</option>
+                    <option value="FALSE" selected>FALSE</option>
+                  </select>
+                </td>
+                <td>
+                  <select  name="warehouse_2" id="warehouse_2"  class="">
+                    <option value="TRUE">TRUE</option>
+                    <option value="FALSE" selected>FALSE</option>
+                  </select>
+                </td>
+                <td>
+                  <select  name="warehouse_3" id="warehouse_3"  class="">
+                    <option value="TRUE">TRUE</option>
+                    <option value="FALSE" selected>FALSE</option>
+                  </select>
+                </td>
+                <td>
+                  <select  name="warehouse_4" id="warehouse_4"  class="">
+                    <option value="TRUE">TRUE</option>
+                    <option value="FALSE" selected>FALSE</option>
+                  </select>
+                </td>
+                <td>
+                  <select  name="warehouse_5" id="warehouse_5"  class="">
+                    <option value="TRUE">TRUE</option>
+                    <option value="FALSE" selected>FALSE</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="6" style="text-align:left; background-color:#ffffff;">
+                  <div class="heading-wrapper"> <h2 style="margin:0px auto; background-color:#ffffff;">Store Inputs</h2></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="avg_wkly_dem">Avg Wkly Demand </label>
+                </td>
+                <td>
+                  <input type="text" name="avg_wkly_dem_1" id="avg_wkly_dem_1" value="50"  class="scen_class_1"/>
+                </td>
+                <td>
+                  <input type="text" name="avg_wkly_dem_2" id="avg_wkly_dem_2" value="50"  class="scen_class_2"/>
+                </td>
+                <td>
+                  <input type="text" name="avg_wkly_dem_3" id="avg_wkly_dem_3" value="50"  class="scen_class_3"/>
+                </td>
+                <td>
+                  <input type="text" name="avg_wkly_dem_4" id="avg_wkly_dem_4" value="50"  class="scen_class_4"/>
+                </td>
+                <td>
+                  <input type="text" name="avg_wkly_dem_5" id="avg_wkly_dem_5" value="50"  class="scen_class_5"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="std_dev_demm">Std Dev of Demand </label>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_demm_1" id="std_dev_demm_1" value="25"  class="scen_class_1"/>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_demm_2" id="std_dev_demm_2" value="25"  class="scen_class_2"/>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_demm_3" id="std_dev_demm_3" value="25"  class="scen_class_3"/>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_demm_4" id="std_dev_demm_4" value="25"  class="scen_class_4"/>
+                </td>
+                <td>
+                  <input type="text" name="std_dev_demm_5" id="std_dev_demm_5" value="25"  class="scen_class_5"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="des_cycle_service">Desired Cycle Service Level (%) </label>
+                </td>
+                <td>
+                  <input type="text" name="des_cycle_service_1" id="des_cycle_service_1"  value="95"  class="scen_class_1"/>
+                </td>
+                <td>
+                  <input type="text" name="des_cycle_service_2" id="des_cycle_service_2"  value="95"  class="scen_class_2"/>
+                </td>
+                <td>
+                  <input type="text" name="des_cycle_service_3" id="des_cycle_service_3"  value="95"  class="scen_class_3"/>
+                </td>
+                <td>
+                  <input type="text" name="des_cycle_service_4" id="des_cycle_service_4"  value="95"  class="scen_class_4"/>
+                </td>
+                <td>
+                  <input type="text" name="des_cycle_service_5" id="des_cycle_service_5"  value="95"  class="scen_class_5"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="sale_price">Sale Price $  </label>
+                </td>
+                <td>
+                  <input type="text" name="sale_price_1" id="sale_price_1"  value="35"  class="scen_class_1"/>
+                </td>
+                <td>
+                  <input type="text" name="sale_price_2" id="sale_price_2"  value="35"  class="scen_class_2"/>
+                </td>
+                <td>
+                  <input type="text" name="sale_price_3" id="sale_price_3"  value="35"  class="scen_class_3"/>
+                </td>
+                <td>
+                  <input type="text" name="sale_price_4" id="sale_price_4"  value="35"  class="scen_class_4"/>
+                </td>
+                <td>
+                  <input type="text" name="sale_price_5" id="sale_price_5"  value="35"  class="scen_class_5"/>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-left">
+                  <label for="out_of_stock"> % of Out of stocks Resulting in Lost Sales  </label>
+                </td>
+                <td>
+                  <input type="text" name="out_of_stock_1" id="out_of_stock_1" value="80"  class="scen_class_1"/>
+                </td>
+                <td>
+                  <input type="text" name="out_of_stock_2" id="out_of_stock_2" value="80"  class="scen_class_2"/>
+                </td>
+                <td>
+                  <input type="text" name="out_of_stock_3" id="out_of_stock_3" value="80"  class="scen_class_3"/>
+                </td>
+                <td>
+                  <input type="text" name="out_of_stock_4" id="out_of_stock_4" value="80"  class="scen_class_4"/>
+                </td>
+                <td>
+                  <input type="text" name="out_of_stock_5" id="out_of_stock_5" value="80"  class="scen_class_5"/>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+
+          <div class="form-fields btn-wrapper">
+            <!--            <input type="button" onclick="clear_form(1);" value="clear_1"/>
+                        <input type="button" onclick="clear_form(2);" value="clear_2"/>
+                        <input type="button" onclick="clear_form(3);" value="clear_3"/>
+                        <input type="button" onclick="clear_form(4);" value="clear_4"/>
+                        <input type="button" onclick="clear_form(5);" value="clear_5"/>-->
+            <input type="submit" class="btn-post" value="Post" />
+          </div>
+        </form>
+      </div>
+      <div class="result-wrapper" id="result-wrapper">
+        <div class="heading-wrapper" id="result_head">
+          <div id="result" ></div>
+
+          <!--Plotting Grphs-->
+          <div class="graph" id="graph">
+            <div class="comparing-working-capital">
+              <div id="chartNode">
+              </div>
+              <ul>
+                <li><span>Average Inventory Buffer Supplier ($)</span></li>
+                <li><span>Average Inventory Don't Supplier ($)</span></li>
+              </ul>
+            </div>
+            <div class="comparing-lost-profit">
+              <div id="chartNode2">
+              </div>
+              <ul>
+                <li><span>Expected Lost Profit Buffer Supplier ($)</span></li>
+                <li><span>Expected Lost Profit Supplier ($)</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="wrap" style="width:89%;" id="result_table">
+      <div class="table">
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td colspan="7" style="text-align:left; background-color:#ffffff;">
+                <div class="heading-wrapper"> <h2 style="margin:0px auto; background-color:#ffffff;font-size:15px;">Outputs- If Store Buffers Supplier Performance</h2></div>
+              </td>
+            </tr>
+            <tr>
+              <td>Average Cycle Stock ($)</td>
+              <td class="performance">$<span id="avg_cycle_stock_1"></span></td>
+              <td class="performance">$<span id="avg_cycle_stock_2"></span></td>
+              <td class="performance">$<span id="avg_cycle_stock_3"></span></td>
+              <td class="performance">$<span id="avg_cycle_stock_4"></span></td>
+              <td class="performance">$<span id="avg_cycle_stock_5"></span></td>
+            </tr>
+            <tr>
+              <td>Average Safety Stock ($)</td>
+              <td class="performance">$<span id="avg_safe_stock_1"></span></td>
+              <td class="performance">$<span id="avg_safe_stock_2"></span></td>
+              <td class="performance">$<span id="avg_safe_stock_3"></span></td>
+              <td class="performance">$<span id="avg_safe_stock_4"></span></td>
+              <td class="performance">$<span id="avg_safe_stock_5"></span></td>
+            </tr>
+            <tr>
+              <td>Average Inventory buffer Supplier ($)</td>
+              <td class="performance">$<span id="avg_inven_buff_1"></span></td>
+              <td class="performance">$<span id="avg_inven_buff_2"></span></td>
+              <td class="performance">$<span id="avg_inven_buff_3"></span></td>
+              <td class="performance">$<span id="avg_inven_buff_4"></span></td>
+              <td class="performance">$<span id="avg_inven_buff_5"></span></td>
+            </tr>
+            <tr>
+              <td>Approximate Fill Rate</td>
+              <td class="performance"><span id="approx_fill_rate_1"></span>%</td>
+              <td class="performance"><span id="approx_fill_rate_2"></span>%</td>
+              <td class="performance"><span id="approx_fill_rate_3"></span>%</td>
+              <td class="performance"><span  id="approx_fill_rate_4"></span>%</td>
+              <td class="performance"><span  id="approx_fill_rate_5"></span>%</td>
+            </tr>
+            <tr>
+              <td>Expected Lost Profit Buffer Supplier ($)</td>
+              <td class="performance">$<span id="exp_lost_profit_1"></span></td>
+              <td class="performance">$<span id="exp_lost_profit_2"></span></td>
+              <td class="performance">$<span id="exp_lost_profit_3"></span></td>
+              <td class="performance">$<span id="exp_lost_profit_4"></span></td>
+              <td class="performance">$<span id="exp_lost_profit_5"></span></td>
+            </tr>
+            <tr>
+              <td colspan="7" style="text-align:left; background-color:#ffffff;">
+                <div class="heading-wrapper"> <h2 style="margin:0px auto; background-color:#ffffff;font-size:15px;">
+                    Outputs- If Store Doesn't Buffer Supplier Performance</h2></div>
+              </td>
+            </tr>
+            <tr>
+              <td>Average Cycle Stock ($)</td>
+              <td class="performance">$<span id="avg_cycle_stock_d_1"></span></td>
+              <td class="performance">$<span id="avg_cycle_stock_d_2"></span></td>
+              <td class="performance">$<span id="avg_cycle_stock_d_3"></span></td>
+              <td class="performance">$<span id="avg_cycle_stock_d_4"></span></td>
+              <td class="performance">$<span id="avg_cycle_stock_d_5"></span></td>
+            </tr>
+            <tr>
+              <td>Average Safety Stock ($)</td>
+              <td class="performance">$<span id="avg_safe_stock_d_1"></span></td>
+              <td class="performance">$<span id="avg_safe_stock_d_2"></span></td>
+              <td class="performance">$<span id="avg_safe_stock_d_3"></span></td>
+              <td class="performance">$<span id="avg_safe_stock_d_4"></span></td>
+              <td class="performance">$<span id="avg_safe_stock_d_5"></span></td>
+            </tr>
+            <tr>
+              <td>Average Inventory Don't Buffer Supplier ($)</td>
+              <td class="performance">$<span id="avg_inven_buff_d_1"></span></td>
+              <td class="performance">$<span id="avg_inven_buff_d_2"></span></td>
+              <td class="performance">$<span id="avg_inven_buff_d_3"></span></td>
+              <td class="performance">$<span id="avg_inven_buff_d_4"></span></td>
+              <td class="performance">$<span id="avg_inven_buff_d_5"></span></td>
+            </tr>
+            <tr>
+              <td>Approximate Fill Rate</td>
+              <td class="performance"><span id="approx_fill_rate_d_1"></span>%</td>
+              <td class="performance"><span  id="approx_fill_rate_d_2"></span>%</td>
+              <td class="performance"><span  id="approx_fill_rate_d_3"></span>%</td>
+              <td class="performance"><span  id="approx_fill_rate_d_4"></span>%</td>
+              <td class="performance"><span  id="approx_fill_rate_d_5"></span>%</td>
+            </tr>
+            <tr>
+              <td>Expected Lost Profit Supplier ($)</td>
+              <td class="performance">$<span id="exp_lost_profit_d_1"></span></td>
+              <td class="performance">$<span id="exp_lost_profit_d_2"></span></td>
+              <td class="performance">$<span id="exp_lost_profit_d_3"></span></td>
+              <td class="performance">$<span id="exp_lost_profit_d_4"></span></td>
+              <td class="performance">$<span id="exp_lost_profit_d_5"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- load dojo and provide config via data attribute -->
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/dojo.js" data-dojo-config="async: true, parseOnLoad: true"></script>
+    <script src="assets/js/dojo_form.js" data-dojo-config="async: true, parseOnLoad: true"></script>
+    <script src="assets/js/dojo_main.js" data-dojo-config="async: true, parseOnLoad: true"></script>
+  </body>
+</html>
